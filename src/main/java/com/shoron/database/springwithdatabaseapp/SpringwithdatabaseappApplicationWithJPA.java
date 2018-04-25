@@ -33,19 +33,21 @@ public class SpringwithdatabaseappApplicationWithJPA implements
 	public void run(String... args) throws Exception {
 						
 		logger.info("User id 1001 -> {}",personRepository.findById(1001));
+
+		logger.info("Insering -> {}",
+		personRepository.insert(new Person("Shaekh Hasan","Khilgao", new Date())));
+
+		logger.info("Updating 1003 -> {}",
+		personRepository.update(new Person(1003,"Hasan Shoron","Dhaka Khilgao", new Date())));
+
+		
 		
 //			logger.info("All users -> {}",dao.findAll());
 			
 
 //			
 //			logger.info("Deleting 1002 -> No of rows deleted - {}",dao.deleteById(1002));
-//			
-//			logger.info("Insering 1004 -> {}",
-//					dao.insert(new Person(1004,"Shaekh Hasan","Khilgao", new Date())));
-//			
-//			logger.info("Updating 1003 -> {}",
-//					dao.update(new Person(1003,"Hasan Shoron","Dhaka Khilgao", new Date())));
-//			
+//						
 //			logger.info("All users -> {}",dao.findAll());
 			
 			
