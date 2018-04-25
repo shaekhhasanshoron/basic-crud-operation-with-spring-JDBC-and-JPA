@@ -15,7 +15,7 @@ import com.shoron.database.springwithdatabaseapp.Dao.PersonJDBCDao;
 import com.shoron.database.springwithdatabaseapp.Model.Person;
 
 
-@SpringBootApplication
+//@SpringBootApplication
 public class SpringwithdatabaseappApplication implements 
 					CommandLineRunner{
 
