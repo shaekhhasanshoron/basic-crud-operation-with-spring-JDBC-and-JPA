@@ -14,19 +14,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.shoron.database.springwithdatabaseapp.Dao.PersonJDBCDao;
 import com.shoron.database.springwithdatabaseapp.Model.Person;
 import com.shoron.database.springwithdatabaseapp.repository.PersonRepository;
+import com.shoron.database.springwithdatabaseapp.springdata.PersonSpringDataRepository;
 
 
-//@SpringBootApplication
-public class SpringwithdatabaseappApplicationWithJPA implements 
+@SpringBootApplication
+public class SpringwithdatabaseappApplicationWithSpringData implements 
 					CommandLineRunner{
 
 	@Autowired
-	PersonRepository personRepository;
+	PersonSpringDataRepository personRepository;
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 			
 	public static void main(String[] args) {
-		SpringApplication.run(SpringwithdatabaseappApplicationWithJPA.class, args);
+		SpringApplication.run(SpringwithdatabaseappApplicationWithSpringData.class, args);
 	}
 
 	@Override
@@ -35,10 +36,10 @@ public class SpringwithdatabaseappApplicationWithJPA implements
 		logger.info("User id 1001 -> {}",personRepository.findById(1001));
 
 		logger.info("Insering -> {}",
-		personRepository.insert(new Person("Shaekh Hasan","Khilgao", new Date())));
+		personRepository.save(new Person("Shaekh Hasan","Khilgao", new Date())));
 
 		logger.info("Updating 1003 -> {}",
-		personRepository.update(new Person(1003,"Hasan Shoron","Dhaka Khilgao", new Date())));
+		personRepository.save(new Person(1003,"Hasan Shoron","Dhaka Khilgao", new Date())));
 
 		personRepository.deleteById(1002);
 		
