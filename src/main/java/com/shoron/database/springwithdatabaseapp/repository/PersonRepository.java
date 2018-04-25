@@ -29,4 +29,8 @@ public class PersonRepository {
 		return entityManager.merge(person);
 	}
 	
+	public void deleteById(int id) {
+		Person person=findById(id);
+		entityManager.remove(person);
+	}
 }

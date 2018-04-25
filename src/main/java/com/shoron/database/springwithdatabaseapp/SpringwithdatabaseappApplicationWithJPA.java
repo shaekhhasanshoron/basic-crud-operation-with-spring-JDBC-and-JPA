@@ -40,13 +40,14 @@ public class SpringwithdatabaseappApplicationWithJPA implements
 		logger.info("Updating 1003 -> {}",
 		personRepository.update(new Person(1003,"Hasan Shoron","Dhaka Khilgao", new Date())));
 
+		personRepository.deleteById(1002);
 		
 		
 //			logger.info("All users -> {}",dao.findAll());
 			
 
 //			
-//			logger.info("Deleting 1002 -> No of rows deleted - {}",dao.deleteById(1002));
+
 //						
 //			logger.info("All users -> {}",dao.findAll());
 			
