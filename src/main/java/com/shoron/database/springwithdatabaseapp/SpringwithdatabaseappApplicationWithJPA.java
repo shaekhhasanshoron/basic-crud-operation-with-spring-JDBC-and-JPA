@@ -42,6 +42,7 @@ public class SpringwithdatabaseappApplicationWithJPA implements
 
 		personRepository.deleteById(1002);
 		
+		logger.info("All users -> {}",personRepository.findAll());
 		
 //			logger.info("All users -> {}",dao.findAll());
 			

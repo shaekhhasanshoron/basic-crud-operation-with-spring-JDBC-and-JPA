@@ -1,7 +1,10 @@
 package com.shoron.database.springwithdatabaseapp.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -17,6 +20,16 @@ public class PersonRepository {
 	EntityManager entityManager; // for communicating with db
 	// entity manager is the interface for persistence context
 
+	public List<Person> findAll(){
+		// writing a jpql
+	
+		// witing a named query 
+		//this named query "find_all_persons will return Person class"
+		TypedQuery<Person> namedQuery = entityManager.createNamedQuery("find_all_persons",Person.class);
+		return namedQuery.getResultList();
+	
+	}
+	
 	public Person findById(int id) {
 		return entityManager.find(Person.class, id);
 	}
@@ -33,4 +46,6 @@ public class PersonRepository {
 		Person person=findById(id);
 		entityManager.remove(person);
 	}
+	
+	
 }
